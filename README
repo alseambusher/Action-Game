@@ -1,0 +1,5 @@
+note that this project is still under construction
+also note that this project implements everything from basic level
+things required:opengl libraries,g++,xdpyinfo utility
+platform: c++ in LINUX
+just type ./BUILD_RUN to build and run
