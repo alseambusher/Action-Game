@@ -1,11 +1,4 @@
-#include<iostream>
-#include<vector>
-#include<stdio.h>
-#include<GL/glut.h>
-#include<GL/gl.h>
-#include<math.h>
-#include"common.h"
-#include "pixel.h"
+#include"pixel.h"
 using namespace std;
 Color getPixel(int x,int y){
         Color c;

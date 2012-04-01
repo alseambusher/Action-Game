@@ -1,3 +1,4 @@
 #!/bin/bash
-g++ -lglut -lGLU -lm basicfunctions.cpp main.cpp pixel.cpp extras.cpp -o main
+#g++ -lglut -lGLU -lm basicfunctions.cpp main.cpp pixel.cpp extras.cpp -o main
+g++ -lglut -lGLU -lm main.cpp -o main
 ./main `./screensize.sh`

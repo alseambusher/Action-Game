@@ -1,12 +1,4 @@
-#include<vector>
-#include<stdio.h>
-#include<iostream>
-#include<GL/glut.h>
-#include<math.h>
-#include<unistd.h>
-#include"common.h"
-#include"extras.h"
-#include<time.h>
+#include"basicfunctions.h"
 using namespace std;
 //this contains all the end points of the face
 struct face_coordinates{
