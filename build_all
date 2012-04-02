@@ -1,7 +1,0 @@
-#!/bin/bash
-for i in `ls *.cpp`
-do
-name=`expr "$i" : '\(.*\)....'`
-gcc -lglut -lGLU -lGL -lm $i -o $name
-done
-
