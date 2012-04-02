@@ -7,9 +7,11 @@
 #include<vector>
 #include<time.h>
 #include<unistd.h>
+#include<string.h>
 #include"common.h"
 #include"pixel.cpp"
 #include"basicfunctions.cpp"
+#include"characters.cpp"
 using namespace std;
 vector<int>OBSTACLE;
 vector<int>BACKGROUND;
@@ -111,6 +113,9 @@ void display (void) {
 	glLoadIdentity(); 
 	vector<int>::iterator itr=OBSTACLE.end(); 
 	vector<int>::iterator itr1=BACKGROUND.end(); 
+ 	//draw_character(500,500,'A',20,1,1,1);
+	char a[10]={'A','A','\0'};
+ 	print_sentence(500,500,a,10,1,1,1);
 //	stars();
 	for(i=0;i<150;i++)
 //		linedda(i,100,i,250+abs(50*sin(i/rand()%100)),154.0/255,205.0/255,50.0/255);
