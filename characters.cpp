@@ -5,6 +5,7 @@ void draw_character(int x,int y,char key,int size,float R,float G,float B){
 			linedda(x+(4*size),y,x+(4*size),y+(4*size),R,G,B);
 			linedda(x,y+(4*size),x+(4*size),y+(4*size),R,G,B);
 			linedda(x,y+(2*size),x+(4*size),y+(2*size),R,G,B);
+//make this for a-z 0-9 space
 		break;
 	}
 }

@@ -1,8 +1,14 @@
 #include"basicfunctions.h"
 using namespace std;
 //this contains all the end points of the face
-struct face_coordinates{
+class face_coordinates{
+public:
 	int x,y;
+	void add(int a,int b){
+		x=a;y=b;
+	}
+	void rotate(float angle){
+	}
 };
 vector<face_coordinates>FACE_COORDINATES;
 //dda line 
@@ -201,6 +207,7 @@ int face_rotate(int xc,int yc,int coordinate1,int coordinate2,int type,float ang
 }
 void face(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,float colorB){
 	FACE_COORDINATES.clear();
+	face_coordinates FACE;
 	glColor3f(colorR,colorG,colorB);
 	int p,px,py,x,y;
 	int Rx2=Rx*Rx;
@@ -208,13 +215,13 @@ void face(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,float 
 	int twoRx2=2*Rx2;
 	int twoRy2=2*Ry2;
 	x=0;y=Ry;
-	float angle=0.8;
+	float angle=0;
 	//linebre(xcenter-x,ycenter+y,xcenter+x,ycenter+y,colorR,colorG,colorB);
 	//linebre(xcenter-x,ycenter-y,xcenter+x,ycenter-y,colorR,colorG,colorB);
-	struct face_coordinates FACE;
-	FACE.x=xcenter-x;
-	FACE.y=xcenter-y;
-	FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter-x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter-x,ycenter-y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter-y);FACE_COORDINATES.push_back(FACE);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,2,angle),colorR,colorG,colorB);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,2,angle),colorR,colorG,colorB);
 	colorR+=0.005;colorG+=0.005;colorB+=0.000;
@@ -234,11 +241,12 @@ void face(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,float 
 			p+=Ry2+px-py;
 	//linebre(xcenter-x,ycenter+y,xcenter+x,ycenter+y,colorR,colorG,colorB);
 	//linebre(xcenter-x,ycenter-y,xcenter+x,ycenter-y,colorR,colorG,colorB);
+	FACE.add(xcenter-x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter-x,ycenter-y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter-y);FACE_COORDINATES.push_back(FACE);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,2,angle),colorR,colorG,colorB);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,2,angle),colorR,colorG,colorB);
-	FACE.x=xcenter-x;
-	FACE.y=xcenter-y;
-	FACE_COORDINATES.push_back(FACE);
 	colorR+=0.005;colorG+=0.005;colorB+=0.000;
 	}
 	//region2
@@ -256,11 +264,12 @@ void face(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,float 
 			p+=Rx2-py+px;
 	//linebre(xcenter-x,ycenter+y,xcenter+x,ycenter+y,colorR,colorG,colorB);
 	//linebre(xcenter-x,ycenter-y,xcenter+x,ycenter-y,colorR,colorG,colorB);
+	FACE.add(xcenter-x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter+y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter-x,ycenter-y);FACE_COORDINATES.push_back(FACE);
+	FACE.add(xcenter+x,ycenter-y);FACE_COORDINATES.push_back(FACE);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter+y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter+y,2,angle),colorR,colorG,colorB);
 	linedda(face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter-x,ycenter-y,2,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,1,angle),face_rotate(xcenter,ycenter,xcenter+x,ycenter-y,2,angle),colorR,colorG,colorB);
-	FACE.x=xcenter-x;
-	FACE.y=xcenter-y;
-	FACE_COORDINATES.push_back(FACE);
 	colorR+=0.005;colorG+=0.005;colorB+=0.000;
 	}
 }
@@ -351,21 +360,104 @@ void background(int x,int y,int type)
 	}
 
 }
-void stars(){
-        srand(time(NULL));
-        glBegin(GL_POINTS);
-        glPointSize(0.1);
-        glColor3f(1.0,1.0,1.0);
-        int i;
-        float j,k;
-        for(i=0;i<400;i++){
-                j=(float)(rand()%width);
-                k=(float)(rand()%height);
-                glVertex2f(j,k);
-                glVertex2f(-j,k);
-                glVertex2f(j,-k);
-                glVertex2f(-j,-k);
-        }
-        glEnd();
-}
-
+class normalObjects{
+public:
+	int points1,points2,health;
+	bool shieldEnable;
+	Color healthColor;
+	void reset(){
+		points1=0;points2=0;health=100;
+		healthColor.red=0;healthColor.blue=0;healthColor.green=1;
+		shieldEnable=1;
+	}
+	void ground(int h){
+		for(int i=0;i<h;i++)
+                	linebre(0,i,width,i,0.7,0.35+(i*0.002),0.1+(i*0.002));
+        //this is for grass
+       	//linedda(i,100,i,250+abs(50*sin(i/rand()%100)),154.0/255,205.0/255,50.0/255);
+        //linebre_junk(0,i,width,i,0.7,0.35+(i*0.002),0.1+(i*0.002));
+        //linebre_junk(0,i,width,i,0.7,0.35+(i*0.002),0.1+(i*0.002));
+        //linebre_junk(0,i,width,i,0.7,0.35+(i*0.002),0.1+(i*0.002));
+        //linebre_junk(0,i-1,width,i,0.0,0.90+(i*0.002),0.0+(i*0.002));
+        //linebre_junk(0,i-1,width,i,0.5,0.90+(i*0.002),0.0+(i*0.002));
+        //linebre_junk(0,i-1,width,i,0.5,0.90+(i*0.002),0.0+(i*0.002));
+        //linebre_junk(0,i-1,width,i,0.0,0.90+(i*0.002),0.0+(i*0.002));
+        //grass ends here
+	}
+	void grassField(int h){
+        	for(int i=0;i<h;i++)
+                	linedda(0,100+i,width,100+i,154.0/255,205.0/255,50.0/255);
+	}
+	void Face(){
+		if(face_dir_override==1)
+                	face_y-=9;
+		 if(face_dir==1){
+                	if(face_y<20){
+                        	face_y+=5;
+                        	face_dir_override=0;
+                	}
+                	else
+                        face_dir=0;
+        	}
+        	else{
+                	if(face_y>0)
+                        	face_y-=5;
+                	else
+                        	face_dir=1;
+        	}
+        	if(face_y<5)
+                	face_bounce=10;
+        	else
+                	face_bounce=0;
+	        face(1100,140+face_y-face_bounce,50+face_bounce,40-face_bounce,0.8,0.0,0.0);
+		if(shieldEnable){
+			circle(1100,140+face_y-face_bounce,100,33/255,99/255,181/255);
+			circle(1100,140+face_y-face_bounce,90,33/255,99/255,181/255);
+			circle(1100,140+face_y-face_bounce,70,33/255,99/255,181/255);
+		}
+	}
+	//TODO implement faceblast
+	void FaceBlast(){
+	}
+	void simpleSetup(){
+		ground(100);
+		grassField(150);
+	}
+	void healthPoints(){
+		for(int i=width-10;i>(health-170*health)/100+width-180;i--)
+			linedda(i,height-60,i,height-90,healthColor.red,healthColor.green,healthColor.blue);
+		//TODO print_sentence(width-180,height-60,itoa(health),5,1,1,1);
+        	char a[10];
+        	strcpy(a,"AAAAAAA");
+        	print_sentence(10,height-30,a,5,1,1,1);
+        	print_sentence(width-180,height-30,a,5,1,1,1);
+        	print_sentence(width/2-40,height-30,a,5,1,1,1);
+	}
+	//TODO make countdown,speed level
+	void clock(){
+        	//print_sentence(width/2-40,height-30,itoa(width-mov),5,1,1,1);
+	}
+	class drawingBoard{
+	public:
+		int x,y,h,w;
+		void draw(){
+			for(int i=0;i<h;i++)
+                        	linedda(x,y+i,w,y+i,0,0+(i*0.003),0);
+               			linedda(x,y,x,y+h,0,0,0);
+                		linedda(x-1,y,x-1,y+h,0,1,0);
+                		linedda(x,y+h,w,y+h,0,0,0);
+                		linedda(x,y+h+1,w,y+h+1,0,1,0);
+			}
+			bool onMouseOver(){
+		//NOTE that width of the menu is 20
+				if((mouseX<x)&&(mouseX>x-50)&&(mouseY>y)&&(mouseY<y+h))
+					return 1;
+				else
+					return 0;
+			}
+			void showMenu(){
+				for(int i=0;i<h+2;i++)
+                        		linedda(x-50,y+i,x-2,y+i,0.7+i*0.001,0.35+i*0.001,0.1+i*0.001);
+			}
+	};
+};

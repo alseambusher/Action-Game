@@ -1,4 +1,5 @@
 #!/bin/bash
+rm main
 g++ -lglut -lGLU -lm main.cpp -o main
-#g++ -lglut -lGLU -lm main.cpp -o main `pkg-config --cflags --libs freealut`
+#g++ -lglut -lGLU -lm -Wall main.cpp -o main
 ./main `./screensize.sh`
