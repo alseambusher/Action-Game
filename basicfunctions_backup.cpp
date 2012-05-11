@@ -676,7 +676,7 @@ void displayparser(){
 	int a,b,c,d,e;
 	float fa,fb,fc;
 	//fp=fopen("~/.glutrix/DISPLAY","r");
-fp=fopen("/home/alse/.glutrix/DISPLAY","r");
+	fp=fopen("DISPLAY","r");
 	//char int int int int float float float int
 	while(fscanf(fp,"%c %d %d %d %d %f %f %f %d",&ch,&a,&b,&c,&d,&fa,&fb,&fc,&e)!=EOF){
 		switch(ch){
@@ -698,7 +698,7 @@ void segmentparser(){
 	int tx,ty;
 	float sx,sy,angle;
 	//f=fopen("~/.glutrix/SEGMENT","r");
-f=fopen("/home/alse/.glutrix/SEGMENT","r");
+	f=fopen("SEGMENT","r");
 	fscanf(f,"%d %d %f %f %f",&tx,&ty,&sx,&sy,&angle);
 	//draw here
 	
@@ -711,6 +711,6 @@ f=fopen("/home/alse/.glutrix/SEGMENT","r");
 //this executes segment file and updates segment file SEGMENT
 void segmentupdater(int tx,int ty,float sx,float sy,float angle){
 	char string[100];
-sprintf(string,"echo '%d %d %f %f %f'>/home/alse/.glutrix/SEGMENT",tx,ty,sx,sy,angle);
+	sprintf(string,"echo '%d %d %f %f %f'>SEGMENT",tx,ty,sx,sy,angle);
 	system(string);
 }

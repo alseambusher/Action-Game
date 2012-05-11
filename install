@@ -1,0 +1,27 @@
+#!/bin/bash
+if [ -e ~/.glutrix ]
+then
+rm -r ~/.glutrix
+rm ~/Desktop/glutrix.desktop
+fi
+mkdir ~/.glutrix
+#sudo apt-get install mplayer
+#sudo apt-get install g++
+#TODO similarly install all the packages required
+sed -n "1,678p" basicfunctions_backup.cpp >basicfunctions.cpp
+echo "fp=fopen(\"/home/`whoami`/.glutrix/DISPLAY\",\"r\");">>basicfunctions.cpp
+sed -n "680,700p" basicfunctions_backup.cpp >>basicfunctions.cpp
+echo "f=fopen(\"/home/`whoami`/.glutrix/SEGMENT\",\"r\");">>basicfunctions.cpp
+sed -n "702,713p" basicfunctions_backup.cpp >>basicfunctions.cpp
+echo "sprintf(string,\"echo '%d %d %f %f %f'>/home/`whoami`/.glutrix/SEGMENT\",tx,ty,sx,sy,angle);">>basicfunctions.cpp
+sed -n "715,716p" basicfunctions_backup.cpp >>basicfunctions.cpp
+#TODO similarly do this for DYNAMIC also
+cp *.ogg *.wav DISPLAY DYNAMIC README SEGMENT screensize.sh icon.png ~/.glutrix
+cp glutrix.desktop ~/Desktop/
+echo "Icon=/home/`whoami`/.glutrix/icon.png">>~/Desktop/glutrix.desktop
+echo "Exec=/home/`whoami`/.glutrix/glutrix `~/.glutrix/screensize.sh`">>~/Desktop/glutrix.desktop
+chmod +x ~/Desktop/glutrix.desktop
+g++ -lglut -lGLU -lm main.cpp -o ~/.glutrix/glutrix 2>/dev/null
+echo "alias glutrix='~/.glutrix/glutrix `~/.glutrix/screensize.sh`'" >> ~/.bashrc
+echo "Installed glutrix successfully!!!!"
+echo "See ~/.glutrix/README for more details"

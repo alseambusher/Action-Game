@@ -11,7 +11,7 @@ void circle(int,int,int,float,float,float);
 //mid point ellipse algorithm
 void ellipse(int,int,int,int,float,float,float);
 //face
-void face(int,int,int,int,float,float,float);
+void face(int,int,int,int,float,float,float,float);
 void obstacle(int,int,int);
 //this is for clouds
 void clouds(int,int,int);
