@@ -23,8 +23,8 @@
 > 5. mplayer(if not there, modify the code to players like aplay)
 
 ##HOW TO INSTALL
-> chmod +x install
-> sudo ./install
+> <code>chmod +x install  
+> sudo ./install</code>
 
 ##HOW TO JUST RUN
 > If you have xdpyinfo utility you can just type
