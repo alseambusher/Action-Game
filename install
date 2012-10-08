@@ -21,7 +21,7 @@ cp glutrix.desktop ~/Desktop/
 echo "Icon=/home/`whoami`/.glutrix/icon.png">>~/Desktop/glutrix.desktop
 echo "Exec=/home/`whoami`/.glutrix/glutrix `~/.glutrix/screensize.sh`">>~/Desktop/glutrix.desktop
 chmod +x ~/Desktop/glutrix.desktop
-g++ -lglut -lGLU -lm main.cpp -o ~/.glutrix/glutrix 2>/dev/null
+g++ -lglut -lGLU -lGL -lm main.cpp -o ~/.glutrix/glutrix 2>/dev/null
 echo "alias glutrix='~/.glutrix/glutrix `~/.glutrix/screensize.sh`'" >> ~/.bashrc
 echo "Installed glutrix successfully!!!!"
 echo "See ~/.glutrix/README for more details"
