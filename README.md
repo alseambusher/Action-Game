@@ -28,8 +28,8 @@
 
 ##HOW TO JUST RUN
 > If you have xdpyinfo utility you can just type
-> ./BUILD\_RUN
+> <code>./BUILD\_RUN</code>
 > else edit screensize.sh:
 >> 1. remove all the lines
->> 2. type in screen resolution manually eg: echo 1366 768
->> 3. ./BUILD\_RUN
+>> 2. type in screen resolution manually eg: <code>echo 1366 768</code>
+>> 3. <code>./BUILD\_RUN</code>
