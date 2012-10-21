@@ -23,13 +23,13 @@
 > 5. mplayer(if not there, modify the code to players like aplay)
 
 ##HOW TO INSTALL
-> <code>chmod +x install  
-> sudo ./install</code>
+> chmod +x install  
+> sudo ./install
 
 ##HOW TO JUST RUN
 > If you have xdpyinfo utility you can just type
-> <code>./BUILD\_RUN</code>
+> ./BUILD\_RUN
 > else edit screensize.sh:
 >> 1. remove all the lines
->> 2. type in screen resolution manually eg: <code>echo 1366 768</code>
->> 3. <code>./BUILD\_RUN</code>
+>> 2. type in screen resolution manually eg: echo 1366 768
+>> 3. ./BUILD\_RUN
