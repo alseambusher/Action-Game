@@ -27,9 +27,9 @@
 > sudo ./install
 
 ##HOW TO JUST RUN
-> If you have xdpyinfo utility you can just type
-> ./BUILD\_RUN
+> If you have xdpyinfo utility you can just type  
+> make  
 > else edit screensize.sh:
 >> 1. remove all the lines
 >> 2. type in screen resolution manually eg: echo 1366 768
->> 3. ./BUILD\_RUN
+>> 3. make
