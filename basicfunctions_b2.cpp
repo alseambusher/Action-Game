@@ -1,6 +1,6 @@
 #include"basicfunctions.h"
 using namespace std;
-//dda line 
+//dda line
 void linedda(int xa,int ya,int xb,int yb,float colorR,float colorG,float colorB){
 	glColor4f(colorR,colorG,colorB,0.8);
 	glBegin(GL_POINTS);
@@ -210,7 +210,7 @@ void ellipse(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,flo
 	glEnd();
 }
 int face_rotate(int xc,int yc,int coordinate1,int coordinate2,int type,float angle){
-//xc=0;yc=0;	
+//xc=0;yc=0;
 	if(type==1){
 		if(face_dir_override==1){
 			return round(xc+(coordinate1-xc)*cos(angle)-(coordinate2-yc)*sin(angle));
@@ -232,7 +232,7 @@ int face_rotate(int xc,int yc,int coordinate1,int coordinate2,int type,float ang
 	}
 }
 void face(int xcenter,int ycenter,int Rx,int Ry,float colorR,float colorG,float colorB,float angle){//our hero
-	FACE_COORDINATES.clear();//clear points in the face 
+	FACE_COORDINATES.clear();//clear points in the face
 	face_coordinates FACE;
 	glColor3f(colorR,colorG,colorB);
 	int p,px,py,x,y;
@@ -310,19 +310,19 @@ void obstacle(int x,int y,int type){
 	int i;
 	if(type==0){
 		for(i=0;i<160;i++)
-			linebre(x,y+i,x+100,y+i,0.7,0.35+(i*0.001),0.1+(i*0.001));	
+			linebre(x,y+i,x+100,y+i,0.7,0.35+(i*0.001),0.1+(i*0.001));
 	}
 	if(type==1){
 		for(i=0;i<60;i++)
-			linebre(x,y+i,x+300,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));	
+			linebre(x,y+i,x+300,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));
 	}
 	if(type==2){
 		for(i=0;i<60;i++)
-			linebre(x,y+i,x+100,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));	
+			linebre(x,y+i,x+100,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));
 		for(i=0;i<130;i++)
-			linebre(x+110,y+i,x+200,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));	
+			linebre(x+110,y+i,x+200,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));
 		for(i=0;i<80;i++)
-			linebre(x+220,y+i,x+300,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));	
+			linebre(x+220,y+i,x+300,y+i,1.0,0.7+(i*0.005),0.5+(i*0.002));
 	}
 //tree
 	if(type==3){
@@ -331,7 +331,7 @@ void obstacle(int x,int y,int type){
 		face(x-25,y+70+30,50,50,0.0,1.0,0.0,0);
 		face(x+35+25,y+70+30,50,50,0.0,1.0,0.0,0);
 		face(x+17,y+70+70,50,50,0.0,1.0,0.0,0);
-	
+
 	}
 //building
 	if(type==4){
@@ -344,7 +344,7 @@ void obstacle(int x,int y,int type){
 		linebre(x+25+25+25,y+i+160,x+25+25+25+25,y+i+160,139.0/255,(69-2*i)/255.0,19.0/255);
 		linebre(x+25,y+i+40,x+25+25,y+i+40,139.0/255,(69-2*i)/255.0,19.0/255);
 		linebre(x+25+25+25,y+i+40,x+25+25+25+25,y+i+40,139.0/255,(69-2*i)/255.0,19.0/255);
-		
+
 		linebre(x+25,y+i+80,x+25+25,y+i+80,139.0/255,(69-3*i)/255.0,19.0/255);
 		linebre(x+25+25+25,y+i+80,x+25+25+25+25,y+i+80,139.0/255,(69-3*i)/255.0,19.0/255);
 		linebre(x+25,y+i+120,x+25+25,y+i+120,139.0/255,(69-3*i)/255.0,19.0/255);
@@ -382,12 +382,12 @@ void background(int x,int y,int type)//backgrounds are written here
 		for(i=0;i<140/2;i++)
 			linebre(x-30/2+1.0/3*i-300,y+i+40/2,x+35/2+30/2-1.0/3*i-300,y+i+40/2,0.0,0.5+(i*0.004),0.0);
 		break;
-	
+
 	case 4:case 2://mountains
 		for(i=0;i<300;i++)
 			linedda(x-300+i,y+50,x-300+i,y+50+abs(40*sin(i*3.14159/150)),0.45,0.28,0.15);
 		break;
-		
+
 	case 3://wind mill
 		for(i=0;i<50;i++)
 			linedda(x-300+0.3*i,y+20+i,x-300-0.3*i+30,y+20+i,0.4+i*0.01,0.4+i*0.01,0.4);
@@ -395,8 +395,8 @@ void background(int x,int y,int type)//backgrounds are written here
 		linedda(rotate(x-285,y+70,x-285-30,y+70+30,angle).x,rotate(x-285,y+70,x-285-30,y+70+30,angle).y,rotate(x-285,y+70,x-285+30,y+70-30,angle).x,rotate(x-285,y+70,x-285+30,y+70-30,angle).y,1,1,1);
 		angle+=0.03;
 		break;
-		
-	
+
+
 	}
 
 }
@@ -474,7 +474,7 @@ public:
                                 ellipse(1090+rand()%20,100+rand()%10,3,3,0.75,0.45,0.25,1);
                         }
                 }
-		
+
 		faceAngle+=0.0;
 	        //face(1100,140+face_y-face_bounce,50+face_bounce+missileInc,40-face_bounce-(missileInc/2),0.8,0.0,0.0,faceAngle);
 		if(shieldEnable)//draw shield
@@ -502,20 +502,20 @@ public:
 		//player1 health
 		for(int i=0;i<(350*health)/100;i++)
 			linedda(width-i,height-60,width-10-i,height-90,healthColor.red,healthColor.green,healthColor.blue);
-		sprintf(a,"%d",health);	
+		sprintf(a,"%d",health);
 		print_sentence(width-60,height-80,a,3,0,0,0);
 		//player1 fuel
 		for(int i=0;i<(300*fuel1)/32767;i++)
 			linedda(width-i,height-100,width-10-i,height-130,0.4,0.4,0.4);
-		sprintf(a,"%d",fuel1);	
+		sprintf(a,"%d",fuel1);
 		print_sentence(width-90,height-120,a,3,1,1,1);
 		//player2 fuel
 		for(int i=0;i<(300*fuel2)/32767;i++)
 			linedda(i,height-60,i+10,height-90,0.4,0.4,0.4);
-		sprintf(a,"%d",fuel2);	
+		sprintf(a,"%d",fuel2);
 		print_sentence(20,height-80,a,3,1,1,1);
 		//gameTime
-		sprintf(a,"%d",gameTime);	
+		sprintf(a,"%d",gameTime);
         	print_thick_sentence(width/2-40,height-30,a,5,5,1,1,1);
 	}
 	void checkpoint(){
@@ -686,7 +686,7 @@ fp=fopen("/home/alse/.glutrix/DISPLAY","r");
 			circle(a,b,c,fa,fb,fc);break;
 			case 102:
 			face(a,b,c,d,fa,fb,fc,0.0);break;
-	
+
 		}
 	}
 	fclose(fp);
@@ -701,7 +701,7 @@ void segmentparser(){
 f=fopen("/home/alse/.glutrix/SEGMENT","r");
 	fscanf(f,"%d %d %f %f %f",&tx,&ty,&sx,&sy,&angle);
 	//draw here
-	
+
 	linedda((tx-sx*6),(ty-sy*1),(tx-sx*6),(ty+sy*1),1,1,1);
 	linedda((tx-sx*6),(ty-sy*1),(tx+sx*6),(ty-sy*1),1,1,1);
 	linedda((tx-sx*6),(ty+sy*1),(tx+sx*6),(ty+sy*1),1,1,1);
