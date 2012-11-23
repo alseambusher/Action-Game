@@ -25,3 +25,4 @@ g++ -lglut -lGLU -lGL -lm main.cpp -o ~/.glutrix/glutrix 2>/dev/null
 echo "alias glutrix='~/.glutrix/glutrix `~/.glutrix/screensize.sh`'" >> ~/.bashrc
 echo "Installed glutrix successfully!!!!"
 echo "See ~/.glutrix/README for more details"
+cp basicfunctions_backup.cpp basicfunctions.cpp
